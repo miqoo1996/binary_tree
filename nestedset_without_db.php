@@ -145,6 +145,24 @@ class Tree
         return $res_nodes;
     }
 
+    public function treeAsHtml() {
+        $tree = $this->getTree();
+        $html = "<ul>\n";
+        for ($i=0; $i<count($tree); $i++) {
+            $html .= "<li>" . $tree[$i]['name'];
+            if ($tree[$i]['level'] < $tree[$i+1]['level']) {
+                $html .= "\n<ul>\n";
+            } elseif ($tree[$i]['level'] == $tree[$i+1]['level']) {
+                $html .= "</li>\n";
+            } else {
+                $diff = $tree[$i]['level'] - $tree[$i+1]['level'];
+                $html .= str_repeat("</li>\n</ul>\n", $diff) . "</li>\n";
+            }
+        }
+        $html .= "</ul>\n";
+        return $html;
+    }
+
     public function sortBy($a, $b)
     {
         return $a[$this->sortBy] - $b[$this->sortBy];
@@ -206,8 +224,8 @@ $tree->insertChildNode('child node 3 for node(id=1)', 1, 5); // id = 5
 
 //$tree->deleteNode(5); // delete node id = 5
 
-print_r($tree->getPath(1)); // getting category with branches. (category(id=1) with his sub categories)
+//print_r($tree->getPath(1)); // getting category with branches. (category(id=1) with his sub categories)
 
-//print_r($tree->getTree()); // getting tree with his branches
+print_r($tree->treeAsHtml()); // getting tree with his branches
 
 die;
