@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Docs For Class NestedSet</title>
+    <link rel="stylesheet" href="#"/>
+    <meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+</head>
+<body>
+<div class="page-body">
+    <h1 style="text-align: center;">Docs For Class NestedSet</h1>
+    <h2><i>NOTE: Before running this project import the tree.sql in MySQL DB</i></h2>
+    <hr>
+
+    <h3>
+        <div>Click to the blow link to see the tree category algorithm and full documentation</div>
+        <a target="_blank" href="https://www.we-rc.com/blog/2015/07/19/nested-set-model-practical-examples-part-i">https://www.we-rc.com/blog/2015/07/19/nested-set-model-practical-examples-part-i</a>
+    </h3>
+
+    <div style="margin: 30px;display: flex;flex-wrap: wrap;">
+        <div style="max-width: 500px;">
+            <div><b>Rule 1</b></div>
+            <p>The lft and rgt columns store left and right side values of a "tree flow". Note the left and right are
+                reserved keywords (R) in MySQL.</p>
+
+            <br>
+            <br>
+
+            <div><b> Rule 2</b></div>
+            <p>The right side value rgt is allways greater than the node left side value lft.</p>
+
+            <p>If rgt - lft = 1 then node does not have any leaves (is not a parent).</p>
+        </div>
+
+        <div>
+            <img style="max-width: 100%;" src="https://www.we-rc.com/fotosklad/articles/large/3/32/32e833f7.png"/>
+        </div>
+    </div>
+
+    <div>
+        <img src="explenation.png" />
+    </div>
+
+    <h2 class="class-name">Class NestedSet (file - nestedset.class.php)</h2>
+
+    <a name="sec-description"></a>
+    <div class="info-box">
+        <div class="info-box-title">Description</div>
+        <div class="nav-bar">
+            <span class="disabled">Description</span> |
+            <a href="#">details</a>)
+            | <a href="#">details</a>)
+
+        </div>
+        <div class="info-box-body">
+            <p class="short-description">A class to use nested sets easiely</p>
+            <p class="notes">
+                Located in <a class="field" href="#">/nestedset.class.php</a> (line <span
+                    class="field"><a
+                    href="#">10</a></span>)
+            </p>
+
+
+            <pre></pre>
+
+        </div>
+    </div>
+
+
+    <a name="sec-var-summary"></a>
+    <div class="info-box">
+        <div class="info-box-title">Variable Summary</span></div>
+        <div class="nav-bar">
+            <a href="#">Description</a> |
+            <span class="disabled">Vars</span> (<a href="#">details</a>)
+            |
+            <a href="#">details</a>)
+
+        </div>
+        <div class="info-box-body">
+            <div class="var-summary">
+                <div class="var-title">
+                    <span class="var-type">mysqli object</span>
+                    <a href="#">$db</a>
+                </div>
+                <div class="var-title">
+                    <span class="var-type">string</span>
+                    <a href="#">$name</a>
+                </div>
+                <div class="var-title">
+                    <span class="var-type">string</span>
+                    <a href="#">$pk</a>
+                </div>
+                <div class="var-title">
+                    <span class="var-type">string</span>
+                    <a href="#">$table</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a name="sec-method-summary"></a>
+    <div class="info-box">
+        <div class="info-box-title">Method Summary</span></div>
+        <div class="nav-bar">
+            <a href="#">Description</a> |
+            <a href="#">details</a>)
+
+            |
+            <span class="disabled">Methods</span> (<a href="#">details</a>)
+        </div>
+        <div class="info-box-body">
+            <div class="method-summary">
+
+                <div class="method-definition">
+                    <span class="method-result">boolean</span>
+                    <a href="#">__construct</a>
+                    (<span class="var-type">object</span>&nbsp;<span class="var-name">$mysqli</span>)
+                </div>
+                <div class="method-definition">
+                    <span class="method-result">boolean</span>
+                    <a href="#">createRootNode</a>
+                    (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+                </div>
+                <div class="method-definition">
+                    <span class="method-result">boolean</span>
+                    <a href="#">deleteNode</a>
+                    (<span class="var-type">integer</span>&nbsp;<span class="var-name">$id</span>)
+                </div>
+                <div class="method-definition">
+                    <span class="method-result">boolean</span>
+                    <a href="#">deleteSingleNode</a>
+                    (<span class="var-type">integer</span>&nbsp;<span class="var-name">$id</span>)
+                </div>
+                <div class="method-definition">
+                    <span class="method-result">void</span>
+                    <a href="#">error</a>
+                    (<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span>, [<span class="var-type">boolean</span>&nbsp;<span
+                        class="var-name">$continue</span> = <span class="var-default">false</span>])
+                </div>
+                <div class="method-definition">
+                    <span class="method-result">integer</span>
+                    <a href="#">getIdLft</a>
+                    (<span class="var-type">integer</span>&nbsp;<span class="var-name">$lft</span>)
+                </div>
+                <div class="method-definition">
+                    <span class="method-result">integer</span>
+                    <a href="#">getIdRgt</a>
+                    (<span class="var-type">integer</span>&nbsp;<span class="var-name">$rgt</span>)
+                </div>
+                <div class="method-definition">
+                    <span class="method-result">object object</span>
+                    <a href="#">getNode</a>
+                    (<span class="var-type">integer</span>&nbsp;<span class="var-name">$id</span>)
+                </div>
+                <div class="method-definition">
+                    <span class="method-result">array</span>
+                    <a href="#">getPath</a>
+                    (<span class="var-type">integer</span>&nbsp;<span class="var-name">$id</span>)
+                </div>
+                <div class="method-definition">
+                    <span class="method-result">array</span>
+                    <a href="#">getTree</a>
+                    ()
+                </div>
+                <div class="method-definition">
+                    <span class="method-result">boolean</span>
+                    <a href="#">insertChildNode</a>
+                    (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span
+                        class="var-type">integer</span>&nbsp;<span class="var-name">$parent</span>)
+                </div>
+                <div class="method-definition">
+                    <span class="method-result">boolean</span>
+                    <a href="#">insertNode</a>
+                    (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span
+                        class="var-type">integer</span>&nbsp;<span class="var-name">$lft</span>, <span class="var-type">integer</span>&nbsp;<span
+                        class="var-name">$rgt</span>)
+                </div>
+                <div class="method-definition">
+                    <span class="method-result">boolean</span>
+                    <a href="#">moveLft</a>
+                    (<span class="var-type">$nodeId</span>&nbsp;<span class="var-name">$nodeId</span>)
+                </div>
+                <div class="method-definition">
+                    <span class="method-result">boolean</span>
+                    <a href="#">moveRgt</a>
+                    (<span class="var-type">$nodeId</span>&nbsp;<span class="var-name">$nodeId</span>)
+                </div>
+                <div class="method-definition">
+                    <span class="method-result">string</span>
+                    <a href="#">treeAsHtml</a>
+                    ()
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a name="sec-vars"></a>
+    <div class="info-box">
+        <div class="info-box-title">Variables</div>
+        <div class="nav-bar">
+            <a href="#">Description</a> |
+            <a href="#">details</span>)
+
+
+                |
+                <a href="#">details</a>)
+
+        </div>
+        <div class="info-box-body">
+            <a name="var$db" id="$db"><!-- --></A>
+            <div class="evenrow">
+
+                <div class="var-header">
+		<span class="var-title">
+			<span class="var-type">object</span>
+			<span class="var-name">$db</span>
+						(line <span class="line-number"><a
+                href="#">18</a></span>)
+		</span>
+                </div>
+
+               
+                <p class="short-description">Mysqli object</p>
+                <ul class="tags">
+                    <li><span class="field">access:</span> protected</li>
+                </ul>
+
+
+            </div>
+            <a name="var$name" id="$name"><!-- --></A>
+            <div class="oddrow">
+
+                <div class="var-header">
+		<span class="var-title">
+			<span class="var-type">unknown_type</span>
+			<span class="var-name">$name</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number"><a
+                href="#">36</a></span>)
+		</span>
+                </div>
+
+                <p class="short-description">Namefield in the database table</p>
+                <ul class="tags">
+                    <li><span class="field">access:</span> public</li>
+                </ul>
+
+
+            </div>
+            <a name="var$pk" id="$pk"><!-- --></A>
+            <div class="evenrow">
+
+                <div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$pk</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number"><a
+                href="#">30</a></span>)
+		</span>
+                </div>
+
+               
+                <p class="short-description">Primary key of the database table</p>
+                <ul class="tags">
+                    <li><span class="field">access:</span> public</li>
+                </ul>
+
+
+            </div>
+            <a name="var$table" id="$table"><!-- --></A>
+            <div class="oddrow">
+
+                <div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$table</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number"><a
+                href="#">24</a></span>)
+		</span>
+                </div>
+
+               
+                <p class="short-description">Name of the database table</p>
+                <ul class="tags">
+                    <li><span class="field">access:</span> public</li>
+                </ul>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <a name="sec-methods"></a>
+    <div class="info-box">
+        <div class="info-box-title">Methods</div>
+        <div class="nav-bar">
+            <a href="#">Description</a> |
+            <a href="#">details</a>)
+            <a href="#">details</span>)
+
+        </div>
+        <div class="info-box-body">
+            <A NAME='method_detail'></A>
+
+            <a name="method__construct" id="__construct"><!-- --></a>
+            <div class="evenrow">
+
+                <div class="method-header">
+                    <span class="method-title">Constructor __construct</span> (line <span class="line-number"><a
+                        href="#">45</a></span>)
+                </div>
+
+               
+                <p class="short-description">Stores a Mysqli object for further use</p>
+                <ul class="tags">
+                    <li><span class="field">return:</span> true</li>
+                    <li><span class="field">access:</span> public</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">boolean</span>
+		<span class="method-name">
+			__construct
+		</span>
+                    (<span class="var-type">object</span>&nbsp;<span class="var-name">$mysqli</span>)
+                </div>
+
+                <ul class="parameters">
+                    <li>
+                        <span class="var-type">object</span>
+                        <span class="var-name">$mysqli</span><span class="var-description">: Mysqli object</span></li>
+                </ul>
+
+
+            </div>
+            <a name="methodcreateRootNode" id="createRootNode"><!-- --></a>
+            <div class="oddrow">
+
+                <div class="method-header">
+                    <span class="method-title">createRootNode</span> (line <span class="line-number"><a
+                        href="#">56</a></span>)
+                </div>
+
+               
+                <p class="short-description">Creates the root node</p>
+                <ul class="tags">
+                    <li><span class="field">return:</span> true</li>
+                    <li><span class="field">access:</span> public</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">boolean</span>
+		<span class="method-name">
+			createRootNode
+		</span>
+                    (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+                </div>
+
+                <ul class="parameters">
+                    <li>
+                        <span class="var-type">string</span>
+                        <span class="var-name">$name</span><span class="var-description">: Name of the new node</span>
+                    </li>
+                </ul>
+
+
+            </div>
+            <a name="methoddeleteNode" id="deleteNode"><!-- --></a>
+            <div class="evenrow">
+
+                <div class="method-header">
+                    <span class="method-title">deleteNode</span> (line <span class="line-number"><a
+                        href="#">172</a></span>)
+                </div>
+
+               
+                <p class="short-description">Deletes a node an all it's children</p>
+                <ul class="tags">
+                    <li><span class="field">return:</span> true</li>
+                    <li><span class="field">access:</span> public</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">boolean</span>
+		<span class="method-name">
+			deleteNode
+		</span>
+                    (<span class="var-type">integer</span>&nbsp;<span class="var-name">$id</span>)
+                </div>
+
+                <ul class="parameters">
+                    <li>
+                        <span class="var-type">integer</span>
+                        <span class="var-name">$id</span><span class="var-description">: id of the node to delete</span>
+                    </li>
+                </ul>
+
+
+            </div>
+            <a name="methoddeleteSingleNode" id="deleteSingleNode"><!-- --></a>
+            <div class="oddrow">
+
+                <div class="method-header">
+                    <span class="method-title">deleteSingleNode</span> (line <span class="line-number"><a
+                        href="#">191</a></span>)
+                </div>
+
+               
+                <p class="short-description">Deletes a node and increases the level of all children by one</p>
+                <ul class="tags">
+                    <li><span class="field">return:</span> true</li>
+                    <li><span class="field">access:</span> public</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">boolean</span>
+		<span class="method-name">
+			deleteSingleNode
+		</span>
+                    (<span class="var-type">integer</span>&nbsp;<span class="var-name">$id</span>)
+                </div>
+
+                <ul class="parameters">
+                    <li>
+                        <span class="var-type">integer</span>
+                        <span class="var-name">$id</span><span class="var-description">: id of the node to delete</span>
+                    </li>
+                </ul>
+
+
+            </div>
+            <a name="methoderror" id="error"><!-- --></a>
+            <div class="evenrow">
+
+                <div class="method-header">
+                    <span class="method-title">error</span> (line <span class="line-number"><a
+                        href="#">342</a></span>)
+                </div>
+
+               
+                <p class="short-description">Prints a error message</p>
+                <ul class="tags">
+                    <li><span class="field">access:</span> public</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">void</span>
+		<span class="method-name">
+			error
+		</span>
+                    (<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span>, [<span class="var-type">boolean</span>&nbsp;<span
+                        class="var-name">$continue</span> = <span class="var-default">false</span>])
+                </div>
+
+                <ul class="parameters">
+                    <li>
+                        <span class="var-type">int</span>
+                        <span class="var-name">$id</span><span class="var-description">: array-key of the message</span>
+                    </li>
+                    <li>
+                        <span class="var-type">boolean</span>
+                        <span class="var-name">$continue</span><span
+                            class="var-description">: continue script or not</span></li>
+                </ul>
+
+
+            </div>
+            <a name="methodgetIdLft" id="getIdLft"><!-- --></a>
+            <div class="oddrow">
+
+                <div class="method-header">
+                    <span class="method-title">getIdLft</span> (line <span class="line-number"><a
+                        href="#">287</a></span>)
+                </div>
+
+               
+                <p class="short-description">Gets the id of a node depending on it's lft value</p>
+                <ul class="tags">
+                    <li><span class="field">return:</span> id of the node</li>
+                    <li><span class="field">access:</span> protected</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">integer</span>
+		<span class="method-name">
+			getIdLft
+		</span>
+                    (<span class="var-type">integer</span>&nbsp;<span class="var-name">$lft</span>)
+                </div>
+
+                <ul class="parameters">
+                    <li>
+                        <span class="var-type">integer</span>
+                        <span class="var-name">$lft</span><span class="var-description">: lft value of the node</span>
+                    </li>
+                </ul>
+
+
+            </div>
+            <a name="methodgetIdRgt" id="getIdRgt"><!-- --></a>
+            <div class="evenrow">
+
+                <div class="method-header">
+                    <span class="method-title">getIdRgt</span> (line <span class="line-number"><a
+                        href="#">233</a></span>)
+                </div>
+
+               
+                <p class="short-description">Gets the id of a node depending on it's rgt value</p>
+                <ul class="tags">
+                    <li><span class="field">return:</span> id of the node</li>
+                    <li><span class="field">access:</span> protected</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">integer</span>
+		<span class="method-name">
+			getIdRgt
+		</span>
+                    (<span class="var-type">integer</span>&nbsp;<span class="var-name">$rgt</span>)
+                </div>
+
+                <ul class="parameters">
+                    <li>
+                        <span class="var-type">integer</span>
+                        <span class="var-name">$rgt</span><span class="var-description">: rgt value of the node</span>
+                    </li>
+                </ul>
+
+
+            </div>
+            <a name="methodgetNode" id="getNode"><!-- --></a>
+            <div class="oddrow">
+
+                <div class="method-header">
+                    <span class="method-title">getNode</span> (line <span class="line-number"><a
+                        href="#">98</a></span>)
+                </div>
+
+               
+                <p class="short-description">Gets an object with all data of a node</p>
+                <ul class="tags">
+                    <li><span class="field">return:</span> with node-data (id, lft, rgt)</li>
+                    <li><span class="field">access:</span> protected</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">object object</span>
+		<span class="method-name">
+			getNode
+		</span>
+                    (<span class="var-type">integer</span>&nbsp;<span class="var-name">$id</span>)
+                </div>
+
+                <ul class="parameters">
+                    <li>
+                        <span class="var-type">integer</span>
+                        <span class="var-name">$id</span><span class="var-description">: id of the node</span></li>
+                </ul>
+
+
+            </div>
+            <a name="methodgetPath" id="getPath"><!-- --></a>
+            <div class="evenrow">
+
+                <div class="method-header">
+                    <span class="method-title">getPath</span> (line <span class="line-number"><a
+                        href="#">212</a></span>)
+                </div>
+
+               
+                <p class="short-description">Gets a multidimensional array containing the path to defined node</p>
+                <ul class="tags">
+                    <li><span class="field">return:</span> multidimensional array with the data of the nodes in the tree
+                    </li>
+                    <li><span class="field">access:</span> public</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">array</span>
+		<span class="method-name">
+			getPath
+		</span>
+                    (<span class="var-type">integer</span>&nbsp;<span class="var-name">$id</span>)
+                </div>
+
+                <ul class="parameters">
+                    <li>
+                        <span class="var-type">integer</span>
+                        <span class="var-name">$id</span><span class="var-description">: id of the node to which the path should point</span>
+                    </li>
+                </ul>
+
+
+            </div>
+            <a name="methodgetTree" id="getTree"><!-- --></a>
+            <div class="oddrow">
+
+                <div class="method-header">
+                    <span class="method-title">getTree</span> (line <span class="line-number"><a
+                        href="#">128</a></span>)
+                </div>
+
+               
+                <p class="short-description">Creates a multi-dimensional array of the whole tree</p>
+                <ul class="tags">
+                    <li><span class="field">return:</span> multi-dimenssional array of the whole tree</li>
+                    <li><span class="field">access:</span> public</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">array</span>
+		<span class="method-name">
+			getTree
+		</span>
+                    ()
+                </div>
+
+
+            </div>
+            <a name="methodinsertChildNode" id="insertChildNode"><!-- --></a>
+            <div class="evenrow">
+
+                <div class="method-header">
+                    <span class="method-title">insertChildNode</span> (line <span class="line-number"><a
+                        href="#">115</a></span>)
+                </div>
+
+               
+                <p class="short-description">Creates a new child node of the node with the given id</p>
+                <ul class="tags">
+                    <li><span class="field">return:</span> true</li>
+                    <li><span class="field">access:</span> public</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">boolean</span>
+		<span class="method-name">
+			insertChildNode
+		</span>
+                    (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span
+                        class="var-type">integer</span>&nbsp;<span class="var-name">$parent</span>)
+                </div>
+
+                <ul class="parameters">
+                    <li>
+                        <span class="var-type">string</span>
+                        <span class="var-name">$name</span><span class="var-description">: name of the new node</span>
+                    </li>
+                    <li>
+                        <span class="var-type">integer</span>
+                        <span class="var-name">$parent</span><span
+                            class="var-description">: id of the parent node</span></li>
+                </ul>
+
+
+            </div>
+            <a name="methodinsertNode" id="insertNode"><!-- --></a>
+            <div class="oddrow">
+
+                <div class="method-header">
+                    <span class="method-title">insertNode</span> (line <span class="line-number"><a
+                        href="#">82</a></span>)
+                </div>
+
+               
+                <p class="short-description">Creates a new node</p>
+                <ul class="tags">
+                    <li><span class="field">return:</span> true</li>
+                    <li><span class="field">access:</span> protected</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">boolean</span>
+		<span class="method-name">
+			insertNode
+		</span>
+                    (<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span
+                        class="var-type">integer</span>&nbsp;<span class="var-name">$lft</span>, <span class="var-type">integer</span>&nbsp;<span
+                        class="var-name">$rgt</span>)
+                </div>
+
+                <ul class="parameters">
+                    <li>
+                        <span class="var-type">string</span>
+                        <span class="var-name">$name</span><span class="var-description">: name of the new node</span>
+                    </li>
+                    <li>
+                        <span class="var-type">integer</span>
+                        <span class="var-name">$lft</span><span class="var-description">: lft of parent node</span></li>
+                    <li>
+                        <span class="var-type">integer</span>
+                        <span class="var-name">$rgt</span><span class="var-description">: rgt of parent node</span></li>
+                </ul>
+
+
+            </div>
+            <a name="methodmoveLft" id="moveLft"><!-- --></a>
+            <div class="evenrow">
+
+                <div class="method-header">
+                    <span class="method-title">moveLft</span> (line <span class="line-number"><a
+                        href="#">249</a></span>)
+                </div>
+
+               
+                <p class="short-description">Moves a node one position to the left staying in the same level</p>
+                <ul class="tags">
+                    <li><span class="field">return:</span> true</li>
+                    <li><span class="field">access:</span> public</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">boolean</span>
+		<span class="method-name">
+			moveLft
+		</span>
+                    (<span class="var-type">$nodeId</span>&nbsp;<span class="var-name">$nodeId</span>)
+                </div>
+
+                <ul class="parameters">
+                    <li>
+                        <span class="var-type">$nodeId</span>
+                        <span class="var-name">$nodeId</span><span
+                            class="var-description">: id of the node to move</span></li>
+                </ul>
+
+
+            </div>
+            <a name="methodmoveRgt" id="moveRgt"><!-- --></a>
+            <div class="oddrow">
+
+                <div class="method-header">
+                    <span class="method-title">moveRgt</span> (line <span class="line-number"><a
+                        href="#">303</a></span>)
+                </div>
+
+               
+                <p class="short-description">Moves a node one position to the right staying in the same level</p>
+                <ul class="tags">
+                    <li><span class="field">return:</span> true</li>
+                    <li><span class="field">access:</span> public</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">boolean</span>
+		<span class="method-name">
+			moveRgt
+		</span>
+                    (<span class="var-type">$nodeId</span>&nbsp;<span class="var-name">$nodeId</span>)
+                </div>
+
+                <ul class="parameters">
+                    <li>
+                        <span class="var-type">$nodeId</span>
+                        <span class="var-name">$nodeId</span><span
+                            class="var-description">: id of the node to move</span></li>
+                </ul>
+
+
+            </div>
+            <a name="methodtreeAsHtml" id="treeAsHtml"><!-- --></a>
+            <div class="evenrow">
+
+                <div class="method-header">
+                    <span class="method-title">treeAsHtml</span> (line <span class="line-number"><a
+                        href="#">148</a></span>)
+                </div>
+
+               
+                <p class="short-description">Get the HTML code for an unordered list of the tree</p>
+                <ul class="tags">
+                    <li><span class="field">return:</span> HTML code for an unordered list of the whole tree</li>
+                    <li><span class="field">access:</span> public</li>
+                </ul>
+
+                <div class="method-signature">
+                    <span class="method-result">string</span>
+		<span class="method-name">
+			treeAsHtml
+		</span>
+                    ()
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    </p>
+</div>
+</body>
+</html>
