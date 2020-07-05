@@ -71,23 +71,34 @@ class Tree
         $this->insertNode($name, $p_node['lft'], $p_node['rgt'], $id);
     }
 
+    public function getLevel($lft, $level = 0)
+    {
+        $lft = $lft - 2;
+        if ($lft >= 0) {
+            $level++;
+            $this->getLevel($lft, $level);
+        }
+        return $level;
+    }
+
     public function getTree()
     {
         $tree = [];
-        $level = 1;
         foreach ($this->nodes as $id => $node) {
             if (empty($node)) continue;
 
-            foreach ($this->nodes as $subnode) {
-                if (!($node['lft'] >= $subnode['lft'] && $node['lft'] <= $subnode['rgt'])) {
-                    continue;
+            $parent_lft = $node['lft'];
+            $parent_rgt = $node['rgt'];
+
+            $level = 1;
+            foreach ($this->nodes as $_node) {
+                if ($_node['lft'] < $parent_lft && $_node['rgt'] < $parent_rgt) {
+                    $level++;
                 }
             }
 
             $tree[$id] = $node;
-            $tree[$id]['level'] = $level;
-
-            $level++;
+            $tree[$id]['level'] = $level; //TODO need to work on this part, to fix level value
         }
 
         $treeObj = new self($tree);
@@ -216,7 +227,7 @@ $tree->createRootNode('test3', 2); // id = 2
 
 $tree->insertChildNode('child node for node(id=1)', 1, 3); // id = 3
 
-$tree->deleteNode(0); // delete node id = 0
+//$tree->deleteNode(0); // delete node id = 0
 
 $tree->insertChildNode('child node 2 for node(id=1)', 1, 4); // id = 4
 
@@ -226,6 +237,9 @@ $tree->insertChildNode('child node 3 for node(id=1)', 1, 5); // id = 5
 
 //print_r($tree->getPath(1)); // getting category with branches. (category(id=1) with his sub categories)
 
-print_r($tree->treeAsHtml()); // getting tree with his branches
+//print_r($tree->treeAsHtml()); // getting tree with his branches
 
-die;
+print_r($tree->getTree()); // getting tree with his branches
+
+// https://www.geeksforgeeks.org/print-right-view-binary-tree-2/
+// https://www.geeksforgeeks.org/difference-between-graph-and-tree/

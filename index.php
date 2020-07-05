@@ -14,9 +14,10 @@ $object = new NestedSet($db);
 
 echo '<pre>';
 
-//$object->createRootNode('test 1'); // create new node
+//$object->createRootNode('test 2'); // create new node
 
-//$object->insertChildNode('test child node for "test 1"', 11);  // new child node for node(id = 11)
+$object->insertChildNode('test child node for "test 4"', 11);  // new child node for node(id = 11)
+$object->insertChildNode('sub for #14"', 14);  // new child node for node(id = 11)
 
 //print_r($object->getTree());  // get tree
 
